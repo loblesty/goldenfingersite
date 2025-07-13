@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>Головна</title>
+    <link rel="stylesheet" href="/static/style.css?v=12345">
+</head>
+<body>
+    <header>
+        <div class="top-right">
+            {% if user %}
+                <a href="{{ url_for('profile') }}">Профіль</a>
+                <a href="{{ url_for('logout') }}">Вийти</a>
+            {% else %}
+                <a href="{{ url_for('login') }}">Увійти</a>
+                <a href="{{ url_for('register') }}">Зареєструватися</a>
+            {% endif %}
+        </div>
+    </header>
+
+    <main>
+        <h1>Вітаємо{{ ", " + user if user else "" }}!</h1>
+
+        {% if user %}
+            <p><a href="{{ url_for('download_page') }}">▶ Завантажити гру</a></p>
+            <p><a href="{{ url_for('shop') }}">🛒 Магазин</a></p>
+        {% else %}
+            <p>Щоб завантажити гру, увійдіть у свій акаунт.</p>
+        {% endif %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Профіль</title>
+</head>
+<body>
+    <h2>Профіль користувача: {{ user }}</h2>
+
+    <h3>Ваш токен:</h3>
+    <pre id="token" style="background:#eee; padding:10px; border-radius:5px; user-select: all;">{z{ token }}</pre>
+    <button onclick="copyToken()">Скопіювати токен</button>
+
+    <script>
+        function copyToken() {
+            const tokenElem = document.getElementById('token');
+            const tokenText = tokenElem.innerText.trim();
+            if (!tokenText) {
+                alert("Токен відсутній!");
+                return;
+            }
+            navigator.clipboard.writeText(tokenText).then(() => {
+                alert("Токен скопійовано!");
+            }).catch(() => {
+                alert("Помилка копіювання токена");
+            });
+        }
+    </script>
+</body>
+</html>

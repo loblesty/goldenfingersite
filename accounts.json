@@ -1,0 +1,8 @@
+{
+  "loblesty": {
+    "password": "scrypt:32768:8:1$ykCHx5iXzfqTnTsW$6b25a712c9ccf3827ad47fb46c1363d9550e5068554afc796a1ef673d5e425d1445bd1476edb070948b6de5307ab21ea13191cdb424bba6dd767d2559a647e30",
+    "token": "87a126b5f0060a0bd2fcb3dd71a92a63",
+    "coins": 1166,
+    "autoclick": 0
+  }
+}

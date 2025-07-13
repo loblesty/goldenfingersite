@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<h1>Магазин з прокачками</h1>
+
+{% for pid, prod in products.items() %}
+  <div style="margin-bottom: 20px; border:1px solid #ccc; padding:10px;">
+    <h3>{{ prod.name }}</h3>
+    <p>Ціна: {{ prod.price }} (в копійках або іншій валюті)</p>
+    <form action="{{ url_for('create_checkout_session') }}" method="post">
+      <input type="hidden" name="product_id" value="{{ pid }}">
+      <button type="submit">Купити</button>
+    </form>
+  </div>
+{% endfor %}
+
+</body>
+</html>
